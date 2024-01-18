@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleof.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Online Food plaza</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+crossorigin="anonymous">
+</head>
+<body>
+<div align="center" class="container my-2">
+<h1>Food List</h1>
+
+ <form> 
+     
+<a th:href= "@{/newFoodForm}" class="btn btn-primary btn-sm mb-3">Add Food</a>
+
+
+<table border="1" class ="table table-striped table-responsive" style="border: solid; border-color: red">
+     <thead>
+           <tr>
+          <th>Food Id</th>
+          <th>Food Name</th>
+          <th>Food Price </th>
+          <th>Food Type</th>
+           </tr>
+      </thead>
+   <tbody>
+   <tr th:each="food : ${listFood}">
+      <td th:text="${food.fid}"></td>
+   <td th:text="${food.fname}"></td>
+   <td th:text="${food.fprice}"></td>
+   <td th:text="${food.ftype}"></td>
+   <td><a th:href= "@{/showFormUpdateFood/{fid}(fid=${food.fid})}" 
+   class="btn btn-primary">Update</a></td>
+    <td><a th:href= "@{/deleteFood/{fid}(fid=${food.fid})}" 
+   class="btn btn-danger">Delete</a></td>
+   </tr>
+</tbody>
+</table>
+
+</form>
+
+</div>
+</body>
+
+</html>

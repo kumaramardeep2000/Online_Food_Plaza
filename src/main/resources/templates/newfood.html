@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleof.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>food plaza</title>
+</head>
+<body>
+<h2>Food List</h2>
+<form action ="#" th:action="@{/saveFood}" th:object="${food}" 
+method="POST">
+
+<input type="text" th:field="*{fname}" placeholder="Food name" class="form.control mb-4 col-4">
+
+<input type="text" th:field="*{fprice}" placeholder="Food Price" class="form.control mb-4 col-4">
+
+<input type="text" th:field="*{ftype}" placeholder="Food Type/Category" class="form.control mb-4 col-4">
+
+<button type="submit" class ="button button-info col-2">Save Food</button>
+
+</form>
+<hr> 
+<a th:href ="@{/food}">Back to food list</a>
+
+</body>
+</html>
